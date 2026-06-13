@@ -1,4 +1,5 @@
 import {
+  keepPreviousData,
   useMutation,
   useQuery,
   useQueryClient,
@@ -9,7 +10,7 @@ export function useDatasets(params = {}) {
   return useQuery({
     queryKey: ["datasets", params],
     queryFn: () => datasetService.getAll(params),
-    keepPreviousData: true,
+    placeholderData: keepPreviousData,
   });
 }
 
